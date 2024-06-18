@@ -1,4 +1,6 @@
 import 'package:cellphone/components/button_switch.dart';
+import 'package:cellphone/components/categories/Categories_widget.dart';
+import 'package:cellphone/components/item_widget.dart';
 import 'package:cellphone/components/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,9 +36,9 @@ class _CellPhoneHomePage extends State<CellphoneHomepage>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              padding: EdgeInsets.all(
-                  16.0), // Thêm padding để có khoảng cách bên trong
+              margin: EdgeInsets.only(top: 20),
+              width: MediaQuery.of(context).size.width * 0.9,
+              padding: EdgeInsets.all(16.0), // Thêm padding để có khoảng cách bên trong
               decoration: BoxDecoration(
                 color: Colors.grey[50],
                 borderRadius: BorderRadius.circular(10.0),
@@ -69,7 +71,7 @@ class _CellPhoneHomePage extends State<CellphoneHomepage>
                         child: Image.asset(
                           'assets/images/ssss.jpg',
                           width: 50.0,
-                          height: 50.0,
+                          height: 50.0,   
                           fit: BoxFit.cover,
                           alignment: Alignment.center,
                         ),
@@ -77,7 +79,7 @@ class _CellPhoneHomePage extends State<CellphoneHomepage>
                     ],
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
@@ -103,21 +105,23 @@ class _CellPhoneHomePage extends State<CellphoneHomepage>
                   const SizedBox(
                     height: 20,
                   ),
+
+                  //SearchWidget
                   TextFormField(
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.only(
-                          left: 30, right: 30, top: 20, bottom: 20),
+                          left: 20, right: 20, top: 10, bottom: 10),
                       suffixIcon: Icon(Icons.search, color: Colors.grey),
                       filled: true,
                       fillColor: Colors.black,
                       hintText: 'Search',
-                      hintStyle: TextStyle(color: Colors.grey),
+                      hintStyle: TextStyle(fontSize: 12,color: Colors.grey,fontFamily: "Montserrat",fontWeight: FontWeight.w500),
                       enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                          borderRadius: BorderRadius.all(Radius.circular(50))),
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                          borderRadius: BorderRadius.all(Radius.circular(50))),
                     ),
                   ),
                 ],
@@ -127,7 +131,7 @@ class _CellPhoneHomePage extends State<CellphoneHomepage>
               height: 30,
             ),
             Container(
-              width: MediaQuery.of(context).size.width * 0.8,
+              width: MediaQuery.of(context).size.width * 0.9,
               child: Column(
                 children: [
                   Align(
@@ -144,36 +148,22 @@ class _CellPhoneHomePage extends State<CellphoneHomepage>
                   const SizedBox(
                     height: 5,
                   ),
-                  Row(
-                    children: [
-                      ButtonSwitch(text: 'Iphone', onTap: () {}),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      ButtonSwitch(text: 'Ipad', onTap: () {}),
-                      const SizedBox()
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 600,
-                    child: Text('ảo thât '),
-                  ),
-                  Text('ffff'),
+               
+                  //CategoriesWidget
+                  CategoriesWidget(),
+    
+                  //ItemWidget
+                  ItemWidget(),
+                  const SizedBox(height: 50,)
+                  
+
+                  
+               
                 ],
               ),
             ),
-            Container(
-              child: TabBar(
-                controller: tabController,
-                tabs: [
-                  Tab(text: 'Tab 1'),
-                  Tab(text: 'Tab 2'),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
+          
+             
           ],
         ),
       ),
